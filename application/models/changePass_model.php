@@ -6,6 +6,14 @@ class changePass_model extends CI_Model{
     public function __construct() {
         parent::__construct();
     }
+    /**
+     * 
+     * @param type $curpass
+     * @param type $newpass
+     * @param type $newpassagain
+     * @return boolean
+     * Validates data; Also adds temp data to the model
+     */
     public function validateData($curpass,$newpass,$newpassagain){
         $this->curpass=$curpass;
         $this->newpass=$newpass;
@@ -25,6 +33,10 @@ class changePass_model extends CI_Model{
         }
         return $return;
     }
+    /**
+     * Validates if the old pass is right
+     * @return A LOT of stuff
+     */
     public function doChange(){
         $curpass=$this->curpass;
         $newpass=$this->newpass;
@@ -37,6 +49,7 @@ class changePass_model extends CI_Model{
         else{
                 $this->db->query('UPDATE '.$this->db->dbprefix('users').' SET password="'.md5($newpass).'" WHERE id='.$this->session->userdata('id'));
             $return['success']=true;
+            
             
         }
         return $return;

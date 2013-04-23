@@ -1,6 +1,8 @@
 <?php
 class login extends CI_Controller{
-  
+  /**
+   * Login form handling
+   */
     public function index(){
         $this->redirects->ifLogged();
         if($this->input->post('act')=='Login'){
@@ -24,6 +26,9 @@ class login extends CI_Controller{
        $this->load->view('loginForm',$data);
         $this->load->view('siteFooter');
     }
+    /**
+     * Forgot password handling
+     */
     public function forgotPassword(){
     $this->redirects->ifLogged();
     $this->load->view('siteTop');

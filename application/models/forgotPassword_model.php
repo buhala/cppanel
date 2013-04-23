@@ -4,6 +4,12 @@ class forgotPassword_model extends CI_Model{
     public function __construct() {
         parent::__construct();
     }
+    /**
+     * 
+     * @param type $email
+     * @return string
+     * Validates the email;Adds it to temp data
+     */
     public function validateData($email){
         $this->email=$email;
         if(filter_var($email, FILTER_VALIDATE_EMAIL)!==false){
@@ -15,6 +21,11 @@ class forgotPassword_model extends CI_Model{
         }
         return $return;
     }
+/**
+ * 
+ * @return an array of information
+ * Checks if the email is in the DB, if so, returns proper data for controller to use
+ */
     public function resetPass(){
         
 

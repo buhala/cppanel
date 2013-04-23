@@ -6,6 +6,13 @@ class login_model extends CI_Model{
         parent::__construct();
 
     }
+    /**
+     * 
+     * @param type $username
+     * @param type $password
+     * @return boolean
+     * Validates data for login. Also stores in model
+     */
     public function validateData($username,$password){
         $this->username=$username;
         $this->password=$password;
@@ -20,6 +27,10 @@ class login_model extends CI_Model{
         }
         return $return;
     }
+    /**
+     * Actually tries to log in the user
+     * @return boolean
+     */
     public function doLogin(){
         $username=$this->username;
         $password=$this->password;

@@ -1,11 +1,17 @@
 <?php
 class profile extends CI_Controller{
+    /**
+     * Beggining profile page
+     */
     public function index(){
         $this->redirects->ifNotLogged();
         $this->load->view('siteTop');
         $this->load->view('profileList');
         $this->load->view('siteFooter');
     }
+    /**
+     * Change password-form and handling
+     */
     public function changePass(){
         $this->redirects->ifNotLogged();
         $this->load->view('siteTop');
@@ -26,10 +32,16 @@ class profile extends CI_Controller{
         $this->load->view('siteFooter');
         
     }
+    /**
+     * Logging out
+     */
         public function logout(){
         $this->session->sess_destroy();
         $this->redirects->ifNotLogged();
     }
+    /**
+     * Coins handler
+     */
         public function coins(){
             $this->load->view('siteTop');
             if($this->input->post('act')=='Add coins'){
