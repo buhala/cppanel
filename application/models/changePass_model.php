@@ -29,13 +29,13 @@ class changePass_model extends CI_Model{
         $curpass=$this->curpass;
         $newpass=$this->newpass;
        // echo md5($curpass);
-        if($this->db->query('SELECT * FROM ps_users WHERE password="'.md5($curpass).'" AND id='.$this->session->userdata('id').'')->num_rows()==0){
+        if($this->db->query('SELECT * FROM '.$this->db->dbprefix('users').' WHERE password="'.md5($curpass).'" AND id='.$this->session->userdata('id').'')->num_rows()==0){
             $return['error'][]='CURPASS_MISMATCH';
             $return['success']=false;
             
         }
         else{
-                $this->db->query('UPDATE ps_users SET password="'.md5($newpass).'" WHERE id='.$this->session->userdata('id'));
+                $this->db->query('UPDATE '.$this->db->dbprefix('users').' SET password="'.md5($newpass).'" WHERE id='.$this->session->userdata('id'));
             $return['success']=true;
             
         }

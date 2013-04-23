@@ -23,7 +23,7 @@ class login_model extends CI_Model{
     public function doLogin(){
         $username=$this->username;
         $password=$this->password;
-        $query=$this->db->query('SELECT * FROM ps_users WHERE username='.$this->db->escape($username).' AND password="'.md5($password).'"');
+        $query=$this->db->query('SELECT * FROM '.$this->db->dbprefix('users').' WHERE username='.$this->db->escape($username).' AND password="'.md5($password).'"');
    
         if($query->num_rows()!=1){
             

@@ -18,7 +18,7 @@ class forgotPassword_model extends CI_Model{
     public function resetPass(){
         
 
-        $query=$this->db->query('SELECT email FROM ps_users WHERE email='.$this->db->escape($this->email));
+        $query=$this->db->query('SELECT email FROM '.$this->db->dbprefix('users').' WHERE email='.$this->db->escape($this->email));
         if($query->num_rows()<1){
             $return['error'][]='NOT_EXIST';
             $return['success']=false;
@@ -27,7 +27,7 @@ class forgotPassword_model extends CI_Model{
             
             $this->load->helper('string');
             $newpass=random_string('alnum',16);
-            $this->db->query('UPDATE ps_users SET password="'.md5($newpass).'"');
+            $this->db->query('UPDATE '.$this->db->dbprefix('users').' SET password="'.md5($newpass).'"');
             $row=$query->row();
             $return['newpass']=$newpass;
             $return['email']=$row->email;
