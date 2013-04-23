@@ -1,0 +1,15 @@
+root { 
+    display: block;
+}
+body{
+    font:'Courier';
+    background:grey;
+}
+footer{
+    font-size:10pt;
+}
+#content{
+    max-width:500px;
+    border:1px solid;
+    background: white;
+}
