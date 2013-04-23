@@ -21,5 +21,5 @@
         <tr><td>Password</td><td><input type='password' name='password'</td></tr>
         <tr><td colspan='2'><input type='submit' name='act' value='Login'</td></tr>
     </table>
-    <a href="<?=  base_url();?>index.php/login/forgotPass">Forgot password?</a>
+    <a href="<?=  base_url();?>index.php/login/forgotPassword">Forgot password?</a>
 </form>
